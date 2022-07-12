@@ -1,0 +1,125 @@
+@use "../media/index";
+.desktop {
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+
+  width: 100%;
+  height: 69px;
+  background: var(--fund);
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  header {
+    /* Auto layout */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0px;
+    width: 100%;
+    height: 68px;
+
+    /* Fondo */
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    color: var(--blanco);
+    .me {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0px;
+      gap: 10px;
+
+      width: 112px;
+      height: 32px;
+
+      /* Inside auto layout */
+
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+      span {
+        font-family: var(--secondary-font);
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 32px;
+        /* identical to box height, or 133% */
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+      }
+    }
+    nav {
+      ul {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0px;
+        gap: 23px;
+
+        width: 445px;
+        height: 16px;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+      }
+      li {
+        /* Boton */
+
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 16px;
+        cursor: pointer;
+        /* identical to box height, or 100% */
+
+        /* Blanco */
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+      }
+      @include index.mobile {
+        display: none;
+      }
+    }
+    .mobile {
+      cursor: pointer;
+      span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        border-radius: 5px;
+        background-color: var(--blanco);
+        &:not(:last-child) {
+          margin-bottom: 5px;
+        }
+        &:last-child {
+          width: 16px;
+          transform: translatex(50%);
+        }
+      }
+    }
+  }
+}
