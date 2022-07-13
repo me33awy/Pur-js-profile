@@ -7,6 +7,7 @@
   padding: 0;
   list-style: none;
   text-decoration: none;
+  transition: all 0.2s ease-in-out;
 }
 
 html,
@@ -161,6 +162,8 @@ h5 {
   flex: none;
   order: 1;
   flex-grow: 0;
+  position: relative;
+  z-index: 10;
 }
 .desktop header {
   /* Auto layout */
@@ -203,18 +206,29 @@ h5 {
   order: 0;
   flex-grow: 0;
 }
+@media (max-width: 768px) {
+  .desktop header nav {
+    display: none;
+  }
+}
 .desktop header nav ul {
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 0px;
+  justify-content: flex-end;
   gap: 23px;
-  width: 445px;
-  height: 16px;
+  width: 100%;
   /* Inside auto layout */
   flex: none;
   order: 1;
   flex-grow: 0;
+}
+@media (max-width: 768px) {
+  .desktop header nav ul {
+    justify-content: center;
+    flex-direction: column;
+  }
 }
 .desktop header nav li {
   /* Boton */
@@ -232,11 +246,21 @@ h5 {
 }
 @media (max-width: 768px) {
   .desktop header nav {
-    display: none;
+    position: absolute;
+    top: 100%;
+    background: var(--fund);
+    width: 100%;
+    left: 0;
+    padding: 20px;
   }
 }
 .desktop header .mobile {
   cursor: pointer;
+}
+@media (min-width: 768px) {
+  .desktop header .mobile {
+    display: none;
+  }
 }
 .desktop header .mobile span {
   display: block;
@@ -244,13 +268,65 @@ h5 {
   height: 2px;
   border-radius: 5px;
   background-color: var(--blanco);
+  transform-origin: right;
 }
 .desktop header .mobile span:not(:last-child) {
   margin-bottom: 5px;
 }
-.desktop header .mobile span:last-child {
-  width: 16px;
-  transform: translatex(50%);
+
+.toggle span:first-child {
+  transform: translatey(7px);
+}
+.toggle span:last-child {
+  transform: translatey(-7px);
+}
+
+/* example 5 */
+.example5 span {
+  -webkit-transition-duration: 0s;
+  transition-duration: 0s;
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+}
+
+.example5:hover span {
+  background-color: rgba(0, 0, 0, 0);
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+}
+
+.example5 span:before {
+  -webkit-transition-property: margin, -webkit-transform;
+  transition-property: margin, transform;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-delay: 0.2s, 0s;
+  transition-delay: 0.2s, 0s;
+}
+
+.example5:hover span:before {
+  margin-top: 0;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transition-delay: 0s, 0.2s;
+  transition-delay: 0s, 0.2s;
+}
+
+.example5 span:after {
+  -webkit-transition-property: margin, -webkit-transform;
+  transition-property: margin, transform;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-delay: 0.2s, 0s;
+  transition-delay: 0.2s, 0s;
+}
+
+.example5:hover span:after {
+  margin-top: 0;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-transition-delay: 0s, 0.2s;
+  transition-delay: 0s, 0.2s;
 }
 
 .container {
