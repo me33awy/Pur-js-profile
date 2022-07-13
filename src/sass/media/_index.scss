@@ -11,3 +11,8 @@ $xxl: 1400px;
     @content;
   }
 }
+@mixin desktop() {
+  @media (min-width:$md) {
+    @content;
+  }
+}
