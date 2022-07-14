@@ -52,8 +52,23 @@
       flex: none;
       order: 0;
       flex-grow: 0;
+      cursor: pointer;
+      transition: all 0.5s;
+      -webkit-text-stroke: 1px #d6f4f4;
+      font-variation-settings: "wght" 900, "ital" 1;
+      text-align: center;
+      color: transparent;
+      font-family: var(--third-font);
+      text-shadow: 1px 1px 0px #07bccc, 2px 2px 0px #e601c0, 3px 3px 0px #e9019a,
+        4px 4px 0px #f40468, 6px 6px 10px #482896;
+      cursor: pointer;
+      &:hover {
+        font-variation-settings: "wght" 100, "ital" 0;
+        text-shadow: none;
+        letter-spacing: 5px;
+      }
+
       span {
-        font-family: var(--secondary-font);
         font-style: normal;
         font-weight: 600;
         font-size: 24px;
@@ -65,10 +80,30 @@
         flex: none;
         order: 0;
         flex-grow: 0;
+        &:hover {
+          -webkit-mask-image: linear-gradient(
+            -75deg,
+            rgba(0, 0, 0, 0.6) 30%,
+            #000 50%,
+            rgba(0, 0, 0, 0.6) 70%
+          );
+          -webkit-mask-size: 200%;
+          animation: shine 2s infinite;
+        }
+
+        @-webkit-keyframes shine {
+          from {
+            -webkit-mask-position: 150%;
+          }
+
+          to {
+            -webkit-mask-position: -50%;
+          }
+        }
       }
     }
     nav {
-      @include index.mobile{
+      @include index.mobile {
         display: none;
       }
       ul {
@@ -80,14 +115,13 @@
         gap: 23px;
 
         width: 100%;
-        // height: 16px;
 
         /* Inside auto layout */
 
         flex: none;
         order: 1;
         flex-grow: 0;
-        @include index.mobile{
+        @include index.mobile {
           justify-content: center;
           flex-direction: column;
         }
@@ -109,6 +143,28 @@
         flex: none;
         order: 0;
         flex-grow: 0;
+        position: relative;
+        &:hover {
+          -webkit-mask-image: linear-gradient(
+            -75deg,
+            rgba(0, 0, 0, 0.6) 30%,
+            #000 50%,
+            rgba(0, 0, 0, 0.6) 70%
+          );
+          -webkit-mask-size: 200%;
+          animation: shine 2s infinite;
+          letter-spacing: 5px;
+        }
+
+        @-webkit-keyframes shine {
+          from {
+            -webkit-mask-position: 150%;
+          }
+
+          to {
+            -webkit-mask-position: -50%;
+          }
+        }
       }
       @include index.mobile {
         position: absolute;
@@ -120,7 +176,7 @@
       }
     }
     .mobile {
-      @include index.desktop{
+      @include index.desktop {
         display: none;
       }
       cursor: pointer;
@@ -134,54 +190,68 @@
         &:not(:last-child) {
           margin-bottom: 5px;
         }
+        &:last-child {
+          width: 50%;
+          position: relative;
+          left: 50%;
+        }
       }
     }
   }
 }
-.toggle{
-  span{
-    &:first-child{
-      transform: translatey(7px)
+.toggle {
+  span {
+    &:first-child {
+      transform: translatey(7px);
     }
-    &:last-child{
-      transform: translatey(-7px)
+    &:nth-child(2) {
+      opacity: 0;
+    }
+    &:last-child {
+      transform: translatey(-7px);
     }
   }
 }
 
-
-
-
-
-
-
-
 /* example 5 */
 .example5 span {
-	-webkit-transition-duration: 0s; transition-duration: 0s;
-	-webkit-transition-delay: 0.2s; transition-delay: 0.2s;
+  -webkit-transition-duration: 0s;
+  transition-duration: 0s;
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
 }
 .example5:hover span {
-	background-color: rgba(0,0,0,0.0);
-	-webkit-transition-delay: 0.2s; transition-delay: 0.2s;
+  background-color: rgba(0, 0, 0, 0);
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
 }
 .example5 span:before {
-	-webkit-transition-property: margin, -webkit-transform; transition-property: margin, transform;
-	-webkit-transition-duration: 0.2s; transition-duration: 0.2s;
-	-webkit-transition-delay: 0.2s, 0s; transition-delay: 0.2s, 0s;
+  -webkit-transition-property: margin, -webkit-transform;
+  transition-property: margin, transform;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-delay: 0.2s, 0s;
+  transition-delay: 0.2s, 0s;
 }
 .example5:hover span:before {
-	margin-top: 0;
-	-webkit-transform: rotate(45deg); transform: rotate(45deg);
-	-webkit-transition-delay: 0s, 0.2s; transition-delay: 0s, 0.2s;
+  margin-top: 0;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transition-delay: 0s, 0.2s;
+  transition-delay: 0s, 0.2s;
 }
 .example5 span:after {
-	-webkit-transition-property: margin, -webkit-transform; transition-property: margin, transform;
-	-webkit-transition-duration: 0.2s; transition-duration: 0.2s;
-	-webkit-transition-delay: 0.2s, 0s; transition-delay: 0.2s, 0s;
+  -webkit-transition-property: margin, -webkit-transform;
+  transition-property: margin, transform;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-delay: 0.2s, 0s;
+  transition-delay: 0.2s, 0s;
 }
 .example5:hover span:after {
-	margin-top: 0;
-	-webkit-transform: rotate(-45deg); transform: rotate(-45deg);
-	-webkit-transition-delay: 0s, 0.2s; transition-delay: 0s, 0.2s;
+  margin-top: 0;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-transition-delay: 0s, 0.2s;
+  transition-delay: 0s, 0.2s;
 }
