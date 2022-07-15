@@ -7,12 +7,13 @@
   padding: 0;
   list-style: none;
   text-decoration: none;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 html,
 body {
   font-family: var(--primary-font);
+  background-color: var(--fund);
   /* Body */
   font-style: normal;
   font-weight: 400;
@@ -201,19 +202,14 @@ h5 {
   order: 0;
   flex-grow: 0;
   cursor: pointer;
-  transition: all 0.5s;
-  -webkit-text-stroke: 1px #d6f4f4;
-  font-variation-settings: "wght" 900, "ital" 1;
   text-align: center;
   color: transparent;
   font-family: var(--third-font);
-  text-shadow: 1px 1px 0px #07bccc, 2px 2px 0px #e601c0, 3px 3px 0px #e9019a, 4px 4px 0px #f40468, 6px 6px 10px #482896;
+  color: var(--banco);
   cursor: pointer;
 }
 .desktop header .me:hover {
-  font-variation-settings: "wght" 100, "ital" 0;
   text-shadow: none;
-  letter-spacing: 5px;
 }
 .desktop header .me span {
   font-style: normal;
@@ -239,7 +235,10 @@ h5 {
     -webkit-mask-position: -50%;
   }
 }
-@media (max-width: 768px) {
+.desktop header nav {
+  z-index: 10;
+}
+@media (max-width: 769px) {
   .desktop header nav {
     display: none;
   }
@@ -257,7 +256,7 @@ h5 {
   order: 1;
   flex-grow: 0;
 }
-@media (max-width: 768px) {
+@media (max-width: 769px) {
   .desktop header nav ul {
     justify-content: center;
     flex-direction: column;
@@ -282,7 +281,6 @@ h5 {
   -webkit-mask-image: linear-gradient(-75deg, rgba(0, 0, 0, 0.6) 30%, #000 50%, rgba(0, 0, 0, 0.6) 70%);
   -webkit-mask-size: 200%;
   animation: shine 2s infinite;
-  letter-spacing: 5px;
 }
 @-webkit-keyframes shine {
   from {
@@ -292,7 +290,7 @@ h5 {
     -webkit-mask-position: -50%;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 769px) {
   .desktop header nav {
     position: absolute;
     top: 100%;
@@ -305,7 +303,7 @@ h5 {
 .desktop header .mobile {
   cursor: pointer;
 }
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .desktop header .mobile {
     display: none;
   }
@@ -316,73 +314,60 @@ h5 {
   height: 2px;
   border-radius: 5px;
   background-color: var(--blanco);
-  transform-origin: right;
-}
-.desktop header .mobile span:not(:last-child) {
-  margin-bottom: 5px;
-}
-.desktop header .mobile span:last-child {
-  width: 50%;
   position: relative;
+}
+.desktop header .mobile span::before {
+  content: "";
+  position: absolute;
+  margin-top: -6px;
+  background-color: var(--blanco);
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  -webkit-transition-property: margin, -webkit-transform;
+  transition-property: margin, transform;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-delay: 0.2s, 0s;
+  transition-delay: 0.2s, 0s;
+}
+.desktop header .mobile span::after {
+  content: "";
+  position: absolute;
+  margin-top: 6px;
+  background-color: var(--blanco);
+  width: 50%;
   left: 50%;
+  height: inherit;
+  border-radius: inherit;
+  -webkit-transition-property: margin, -webkit-transform;
+  transition-property: margin, transform;
+  -webkit-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+  -webkit-transition-delay: 0.2s, 0s;
+  transition-delay: 0.2s, 0s;
 }
 
-.toggle span:first-child {
-  transform: translatey(7px);
-}
-.toggle span:nth-child(2) {
-  opacity: 0;
-}
-.toggle span:last-child {
-  transform: translatey(-7px);
-}
-
-/* example 5 */
-.example5 span {
-  -webkit-transition-duration: 0s;
+.toggle span {
+  transition-delay: 0.2s;
   transition-duration: 0s;
-  -webkit-transition-delay: 0.2s;
-  transition-delay: 0.2s;
+  background-color: var(--fund) !important;
 }
-
-.example5:hover span {
-  background-color: rgba(0, 0, 0, 0);
-  -webkit-transition-delay: 0.2s;
-  transition-delay: 0.2s;
-}
-
-.example5 span:before {
-  -webkit-transition-property: margin, -webkit-transform;
-  transition-property: margin, transform;
-  -webkit-transition-duration: 0.2s;
-  transition-duration: 0.2s;
-  -webkit-transition-delay: 0.2s, 0s;
-  transition-delay: 0.2s, 0s;
-}
-
-.example5:hover span:before {
-  margin-top: 0;
+.toggle span::before {
+  margin-top: 0 !important;
   -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
-  -webkit-transition-delay: 0s, 0.2s;
-  transition-delay: 0s, 0.2s;
+  transform: rotate(45deg) !important;
+  -webkit-transition-delay: 0s, 0.2s !important;
+  transition-delay: 0s, 0.2s !important;
 }
-
-.example5 span:after {
-  -webkit-transition-property: margin, -webkit-transform;
-  transition-property: margin, transform;
-  -webkit-transition-duration: 0.2s;
-  transition-duration: 0.2s;
-  -webkit-transition-delay: 0.2s, 0s;
-  transition-delay: 0.2s, 0s;
-}
-
-.example5:hover span:after {
-  margin-top: 0;
-  -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  -webkit-transition-delay: 0s, 0.2s;
-  transition-delay: 0s, 0.2s;
+.toggle span::after {
+  margin-top: 0 !important;
+  -webkit-transform: rotate(-45deg) !important;
+  transform: rotate(-45deg) !important;
+  -webkit-transition-delay: 0s, 0.2s !important;
+  transition-delay: 0s, 0.2s !important;
+  width: 100% !important;
+  left: 0 !important;
 }
 
 .container {

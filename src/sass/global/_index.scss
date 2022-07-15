@@ -7,11 +7,12 @@
   padding: 0;
   list-style: none;
   text-decoration: none;
-  transition: all .2s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 html,
 body {
   font-family: var(--primary-font);
+  background-color: var(--fund);
   /* Body */
 
   font-style: normal;
