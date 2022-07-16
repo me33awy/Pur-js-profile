@@ -1,4 +1,8 @@
+@use "../media/index";
 .container {
   width: 88%;
   margin: 0 auto;
+  @include index.mobile {
+    width: 95%;
+  }
 }
