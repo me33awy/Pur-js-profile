@@ -1,0 +1,20 @@
+@use "./variables";
+@use "./mixins";
+header {
+  @include mixins.xs-screen {
+    appearance: none;
+  }
+  .bg-light {
+    background-color: variables.$light-gray-color !important;
+  }
+  ul {
+    gap: 20px;
+  }
+  ul li a {
+    color: variables.$gray-color !important;
+    font-weight: variables.$fw-400;
+    &:hover {
+      color: variables.$white-color !important;
+    }
+  }
+}

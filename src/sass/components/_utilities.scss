@@ -1,0 +1,4 @@
+@use "./variables";
+.color-gray {
+  color: variables.$gray-color !important;
+}
